@@ -41,7 +41,25 @@ pipeline {
         }
     }
 
+    post{
 
+        success{
+            emailtext(
+                subject:"SUCCESS: ${JOB_NAME} #${BUILD_NUMBER}",
+                body: "Build succeeded!\nCheck: ${BUILD_URL}",
+                to: "deekshith.m21122006@gmail.com"
+                )
+        }
+
+        failure{
+            emailtext(
+                subject:"FAILED: ${JOB_NAME} #${BUILD_NUMBER}",
+                body: "Build succeeded!\nCheck: ${BUILD_URL}",
+                to: "deekshith.m21122006@gmail.com"
+                )
+        }
+
+    }
    
 }
 
